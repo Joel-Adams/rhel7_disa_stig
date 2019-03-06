@@ -1,6 +1,6 @@
 ---
 - name: Run STIG remediation
-  hosts: web
+  hosts: hosts
   become: yes
   roles:
   - role: redhatofficial.rhel7_disa_stig
