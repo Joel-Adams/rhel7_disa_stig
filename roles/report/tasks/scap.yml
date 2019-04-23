@@ -9,8 +9,8 @@
     yum:
       name: openscap-scanner
       state: present
-      disablerepo: '*'
-      enablerepo: rhel-{{ansible_distribution_major_version}}-server-rpms
+#     disablerepo: '*'
+#      enablerepo: rhel-{{ansible_distribution_major_version}}-server-rpms
     tags:
       - scap
 
@@ -18,8 +18,8 @@
     yum:
       name: scap-security-guide
       state: present
-      disablerepo: '*'
-      enablerepo: rhel-{{ansible_distribution_major_version}}-server-rpms
+#      disablerepo: '*'
+#      enablerepo: rhel-{{ansible_distribution_major_version}}-server-rpms
     tags:
       - scap
   when: rhui_repo.stat.isreg is undefined or rhui_repo.stat.isreg == False
@@ -29,8 +29,8 @@
     yum:
       name: openscap-scanner
       state: present
-      disablerepo: '*'
-      enablerepo: rhui-REGION-rhel-server-releases
+#      disablerepo: '*'
+#      enablerepo: rhui-REGION-rhel-server-releases
     tags:
       - scap
 
@@ -38,8 +38,8 @@
     yum:
       name: scap-security-guide
       state: present
-      disablerepo: '*'
-      enablerepo: rhui-REGION-rhel-server-releases
+#      disablerepo: '*'
+#      enablerepo: rhui-REGION-rhel-server-releases
     tags:
       - scap
   when: rhui_repo.stat.isreg is defined and rhui_repo.stat.isreg == True
