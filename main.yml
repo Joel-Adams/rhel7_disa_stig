@@ -1,8 +1,21 @@
 ---
+- name: Prep for STIG remediation
+  hosts: web
+  become: yes
+  tasks:
+  - file:
+      path: /etc/sssd
+      state: directory
+      mode: 0755
+  - file:
+      path: /etc/sssd/sssd.conf
+      state: touch
+      mode: 0644
+
 - name: Run STIG remediation
   hosts: hosts
   become: yes
   roles:
-  - role: redhatofficial.rhel7_disa_stig
+  - role: redhatofficial.rhel7_stig
   - role: report
 ...
