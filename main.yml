@@ -13,7 +13,7 @@
       mode: 0644
 
 - name: Run STIG remediation
-  hosts: hosts
+  hosts: web
   become: yes
   roles:
   - role: redhatofficial.rhel7_stig
